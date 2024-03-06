@@ -21,6 +21,15 @@ export default function Header() {
                     <Button variant="outline" className="w-full justify-start gap-2">
                         <LogInIcon size={16}/>
                         Fazer Login
+                        {/*<Link to='/login'>Página de Login</Link>
+                            <Routes>
+
+                            <Route path='/login' element={
+                                <RequireAuth> 
+                                <Login/> 
+                                </RequireAuth>
+                            } />
+                            </Routes>*/}
                     </Button>
                     <Button variant="outline" className="w-full justify-start gap-2">
                         <HomeIcon size={16}/>
