@@ -11,25 +11,7 @@ function App() {
 
   return (
     <div>
-      <Header/>
-      <Link to='/login'>Página de Login</Link>
-      <Link to='/private'>Página privada</Link>
-
-  <Routes>
-
-    <Route path='/login' element={
-      <RequireAuth> 
-        <Login/> 
-      </RequireAuth>
-    } />
-    <Route path='/private' element={
-      <RequireAuth> 
-        <PrivateTeste/> 
-      </RequireAuth>
-    } />
-
-  </Routes>
-      
+      <Header/>  
     </div>
   )
 }

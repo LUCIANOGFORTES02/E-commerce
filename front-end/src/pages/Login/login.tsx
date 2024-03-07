@@ -21,7 +21,7 @@ export default function Login() {
        
        if(isLogged){
               toast.success('Operação realizada com sucesso')
-              navigate('/');
+              navigate('/');//Para onde vai depois de logado 
        }
        else{
               toast.error('Opps... Erro inesperado.',{
@@ -31,30 +31,45 @@ export default function Login() {
        }
        }
     }
+    const handleCadastrar=()=>{
+
+    }
 
 
   return (
     <div className="h-full flex justify-center items-center">
-        <div className="bg-background w-[21.875rem] p-[2.1875rem] flex-col ">
-            <div className=" " >{showSignup?'Cadastro':'Login'}</div>
+       <div className="bg-background w-[21.875rem] p-[2.1875rem] flex-col ">
+              <div className="text-lg font-thin mt-[0.625rem] mb-[0.9375rem]" >
+                     {showSignup?'Cadastro':'Login'}
+              </div>
+              <hr className=" w-full"/>
             
-                <div className="w-full">
-                <input className="border border-gray-300 text-red-500 w-full mb-3 px-3 py-2 " 
-                       type="text" placeholder='Nome' value={username} onChange={e=> setUsername(e.target.value)} />
-                <input className="border border-gray-300 w-full mb-3 px-3 py-2 " 
+              <div className="w-full">
+                     {showSignup &&(
+                     <input className="border border-gray-300 text-black w-full mb-3 px-3 py-2 " 
+                       type="text" placeholder='Nome' value={username} onChange={e=> setUsername(e.target.value)} 
+                     />
+                     )}
+                     <input className="border border-gray-300  text-black w-full mb-3 px-3 py-2 " 
                        type="email" placeholder='Email' value={email}  onChange={e=> setEmail(e.target.value)}
-                       />
-                <input className="border border-gray-300 w-full mb-3 px-3 py-2 " 
+                     />
+                     <input className="border border-gray-300  text-black w-full mb-3 px-3 py-2 " 
                        type="password" placeholder='Senha'value={password}  onChange={e=> setPassword(e.target.value)}
-                       />
-                <input className="border border-gray-300 w-full mb-3 px-3 py-2 " 
-                       type="password" placeholder='Confirme a Senha' value={confirmpassword} onChange={e=> setConfirmpassword(e.target.value)} />
-                </div>
-                <hr />
-                <a className="" href="#" onClick={handleLogin}>
-                    <span className="flex justify-center">Já tem cadastro? Acesse o Login!</span>
-                    <span className="flex justify-center">Não tem cadastro? Registre aqui!</span>
-                </a>
+                     />
+                     {showSignup &&(
+                     <input className="border border-gray-300  text-black w-full mb-3 px-3 py-2 " 
+                       type="password" placeholder='Confirme a Senha' value={confirmpassword} onChange={e=> setConfirmpassword(e.target.value)} 
+                     />
+                     )}
+              </div>
+              {showSignup ? <button className="self-end bg-primary py-1 px-4" onClick={handleCadastrar}>Registrar</button> : 
+                            <button className="self-end bg-primary py-1 px-4" onClick={handleLogin} >Entrar</button>
+              }
+
+              <a className="mt-7" href="#" onClick={e=>{e.preventDefault(); setShowSignup(!showSignup);}}>
+                      <span className="flex justify-center">{showSignup ? 'Já tem cadastro? Acesse o Login!' : 'Não tem cadastro? Registre aqui!'}</span> 
+                    
+              </a>
         
         </div>
     </div>
