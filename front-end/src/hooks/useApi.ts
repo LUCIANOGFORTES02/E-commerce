@@ -18,7 +18,7 @@ export const useApi =()=>({
     },
 
     signup: async ()=>{
-        const response = await api.post('/logout');
+        const response = await api.post('/signup');
         return response.data;
     }
 

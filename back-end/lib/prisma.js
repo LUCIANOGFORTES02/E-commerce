@@ -1,4 +1,5 @@
-import {PrismaClient} from "@prisma/client"
+const { PrismaClient } = require('@prisma/client');
+
 
 var cachedPrisma
 
@@ -13,4 +14,4 @@ if(process.env.NODE_ENV=== "production"){
     prisma = cachedPrisma;
 }
 
-export const prismaClient = prisma;
+exports.prismaClient = prisma;

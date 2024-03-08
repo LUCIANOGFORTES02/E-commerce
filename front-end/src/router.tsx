@@ -1,7 +1,7 @@
-import React from 'react'
 import {Routes,Route} from "react-router-dom"
 import { RequireAuth } from './auth/RequireAuth'
 import Login from './pages/Login/login'
+import PrivateTeste from "./pages/Private/private"
 import App from './App'
 
 
@@ -16,6 +16,10 @@ export default function Router() {
           <Route path='/login' 
                   element={<RequireAuth> 
                             <Login/> 
+                        </RequireAuth>} />
+          <Route path='/private' 
+                  element={<RequireAuth> 
+                            <PrivateTeste/> 
                         </RequireAuth>} />
 
       </Routes>

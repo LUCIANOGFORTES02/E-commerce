@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { AuthContext } from "@/auth/AuthContext";
 import { Avatar } from "./avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
+import Gravatar from "react-gravatar";
+import { Separator } from "@radix-ui/react-separator";
 
 
 export default function Header() {
@@ -20,6 +22,7 @@ export default function Header() {
    }
    const handleLogoutClick =async()=>{
     await navigate('/');
+    await auth.signup()
 
   }
 
@@ -37,15 +40,22 @@ export default function Header() {
                 </SheetHeader>
 
                 {auth.user &&(
-                    <div className="flex itens-center gap-2 my-4">
-                        <Avatar>
-                            <AvatarFallback>{auth.user.name?.[0].toUpperCase()}</AvatarFallback>
-                        </Avatar>
-                        <p className="font-medium">{auth.user.name}</p>
-                    </div>
+                    <div className="flex flex-col">
 
+                        <div className="flex itens-center gap-2 py-4">
+                            <Avatar>
+                                <AvatarFallback>{auth.user.name?.[0].toUpperCase()}</AvatarFallback>
+                            </Avatar>
 
+                            <Gravatar email={auth.user.email} alt="User"/>
 
+                            <div className="flex flex-col">
+                            <p className="font-medium">{auth.user.name}</p>
+                            <p className="font-sm opacity-75">Boas compras</p>
+                            </div>
+                        </div>
+                        <Separator/>
+                   </div>
                 )}
 
 
