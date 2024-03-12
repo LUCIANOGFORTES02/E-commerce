@@ -20,7 +20,7 @@ module.exports = app =>{
      const save =async( req,res)=>{
      
         const user = {...req.body}
-
+      
         if(req.params.id) user.id = req.params.id
         try {
             existsOrError(user.name, 'Nome não informado')
@@ -67,7 +67,7 @@ module.exports = app =>{
                 const createUser = await prisma.user.create({
                     data:user
                 }).then(()=>{
-                    console.log('cadastrou')
+                    
                 })
                 res.status(204).send()
             } catch (error) {           

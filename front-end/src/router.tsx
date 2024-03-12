@@ -1,7 +1,7 @@
 import {Routes,Route} from "react-router-dom"
 import { RequireAuth } from './auth/RequireAuth'
 import Login from './pages/Login/login'
-import PrivateTeste from "./pages/Private/private"
+import Home from './pages/Home/page'
 import App from './App'
 
 
@@ -14,13 +14,13 @@ export default function Router() {
                   element={ <App/> } />
           
           <Route path='/login' 
-                  element={<RequireAuth> 
+                  element={ 
                             <Login/> 
-                        </RequireAuth>} />
-          <Route path='/private' 
+                  }/>
+          { <Route path='/home' 
                   element={<RequireAuth> 
-                            <PrivateTeste/> 
-                        </RequireAuth>} />
+                            <Home/> 
+                        </RequireAuth>} /> }
 
       </Routes>
 

@@ -1,4 +1,4 @@
-import { HomeIcon, ListOrderedIcon, LogInIcon, LogOutIcon, MenuIcon, ShoppingCartIcon } from "lucide-react";
+import { HomeIcon, ListOrderedIcon, LogInIcon, LogOutIcon, MenuIcon, ShoppingCartIcon, UserIcon } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
@@ -21,9 +21,9 @@ export default function Header() {
 
    }
    const handleLogoutClick =async()=>{
-    await navigate('/');
     await auth.signup()
-
+    window.location.href = window.location.href
+   //await navigate('/');
   }
 
     return <Card className="flex items-center p-[1.875rem] justify-between">
@@ -44,7 +44,7 @@ export default function Header() {
 
                         <div className="flex itens-center gap-2 py-4">
                             <Avatar>
-                                <AvatarFallback>{auth.user.name?.[0].toUpperCase()}</AvatarFallback>
+                                <AvatarFallback className="">{auth.user.name?.[0].toUpperCase()}</AvatarFallback>
                             </Avatar>
 
                             <Gravatar email={auth.user.email} alt="User"/>
@@ -69,13 +69,13 @@ export default function Header() {
                    ) }
 
                     {auth.user &&(
-                    <Button onClick={handleLoginClick} variant="outline" className="w-full justify-start gap-2">
+                    <Button onClick={handleLogoutClick} variant="outline" className="w-full justify-start gap-2">
                         <LogOutIcon size={16}/>
                         Fazer Logout
                     </Button>
                    ) }
 
-                    <Button onClick={handleLogoutClick} variant="outline" className="w-full justify-start gap-2">
+                    <Button  variant="outline" className="w-full justify-start gap-2">
                         <HomeIcon size={16}/>
                         Ofertas
                     </Button>
@@ -83,6 +83,11 @@ export default function Header() {
                         <ListOrderedIcon size={16}/>
                         Catálogo
                     </Button>
+                    <Button variant="outline" className="w-full justify-start gap-2">
+                        <UserIcon size={16}/>
+                        Admin
+                    </Button>
+
                 </div>
 
 

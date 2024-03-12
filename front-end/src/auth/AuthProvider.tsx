@@ -9,11 +9,16 @@ export const AuthProvider=({children}:{children: JSX.Element})=>{
 
     useEffect(()=>{
         const validateToken = async ()=>{
-            const storageData = localStorage.getItem('authToken');
+            const storageData = localStorage.getItem('userKey');//Pegando o token
+           
             if(storageData){
                 const data = await api.validateToken(storageData);
-                if(data.user){
+                
+                if(data && data.user){
                     setUser(data.user)
+                }
+                else{
+                    //localStorage.removeItem('userKey');
                 }
             }
         }
@@ -24,25 +29,34 @@ export const AuthProvider=({children}:{children: JSX.Element})=>{
 
     
     const signin = async(email: string, password: string)=>{//Requisição ao backend e irá receber a resposta positiva ou não
-        const data = await api.signin(email,password);
+        try {
+            const data = await api.signin(email,password);
+                   
+             if(data.user && data.token){
+               // localStorage.setItem('user',JSON.stringify(data.user))//Armazenar as informações do usuário no localStorage
+                setUser(data.user);
+                setToken(data.token)
+                return true;
+             }
 
-        if(data.user && data.token){
-            setUser(data.user);
-            setToken(data.token)
-            return true;
-        }
-        return false;
+        } catch (error) {
+            console.error("Erro ao fazer login:", error);
+            return false;
+        }       
+        
     }
 
     const signup= async ()=>{
-        await api.signup();
+        //setToken('');
+        localStorage.removeItem('userKey')
         setUser(null);
-        setToken('');
-
+        await api.signup();
     }
 
+   
+
     const setToken=(token: string)=>{//Salvar o token no localStorage
-        localStorage.setItem('authToken',token)
+        localStorage.setItem('userKey',token)
     }
 
 
