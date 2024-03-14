@@ -47,10 +47,10 @@ export const AuthProvider=({children}:{children: JSX.Element})=>{
     }
 
     const signup= async ()=>{
-        //setToken('');
+       
         localStorage.removeItem('userKey')
         setUser(null);
-        await api.signup();
+       ;
     }
 
    

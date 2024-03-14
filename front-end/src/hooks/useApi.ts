@@ -36,10 +36,10 @@ export const useApi =()=>({
 
     },
 
-    signup: async ()=>{
-        const response = await api.post('/signup');
-        return response.data;
-    },
+    // signup: async ()=>{
+    //     const response = await api.post('/signup');
+    //     return response.data;
+    // },
 
     saveCategory: async()=>{
 
