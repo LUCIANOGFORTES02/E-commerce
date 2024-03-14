@@ -2,7 +2,7 @@ import {Routes,Route} from "react-router-dom"
 import { RequireAuth } from './auth/RequireAuth'
 import Login from './pages/Login/login'
 import Home from './pages/Home/page'
-import App from './App'
+
 
 
 export default function Router() {
@@ -11,16 +11,16 @@ export default function Router() {
 
       <Routes>
         <Route path='/' 
-                  element={ <App/> } />
+                  element={<Home/>  } />
           
           <Route path='/login' 
                   element={ 
                             <Login/> 
                   }/>
-          { <Route path='/home' 
+          {/* { <Route path='/home' 
                   element={<RequireAuth> 
                             <Home/> 
-                        </RequireAuth>} /> }
+                        </RequireAuth>} /> } */}
 
       </Routes>
 

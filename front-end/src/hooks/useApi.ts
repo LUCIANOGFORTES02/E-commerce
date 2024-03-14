@@ -40,13 +40,30 @@ export const useApi =()=>({
         const response = await api.post('/signup');
         return response.data;
     },
+
     saveCategory: async()=>{
 
     },
+
     loadCategories:async()=>{
         const response = await api.get('/category');
         return response.data
+    },
+
+    saveProduct: async ()=>{
+
+    },
+
+    loadProduct: async ()=>{
+        const response = await api.get('/product');
+        return response.data
+
+    },
+    loadProductDiscount: async ()=>{
+        const response = await api.get('/productdiscount');
+        return response.data
 
     }
+
 
 })

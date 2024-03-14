@@ -13,15 +13,3 @@ export type Category={
     slug:string,
     imageUrl:String
 }
-
-export type Product={
-    id:string,
-    name:string,
-    slug:string,
-    imageUrl:String[],
-    description: string,
-    //basePrice: Float,
-    categoryId: string,
-    //discountPercentege: Integer
-
-}

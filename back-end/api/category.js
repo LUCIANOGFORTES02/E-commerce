@@ -8,8 +8,8 @@ module.exports = app=>{
 const save =async (req,res)=>{
     const category = {...req.body }
 
-    if (req.params.id){
-        category.id = req.params.id
+    if (req.params.slug){
+        category.slug = req.params.slug
     }
 
     try {
@@ -47,11 +47,11 @@ const get = async (req,res)=>{
 
 }
 
-const getById =async (req,res)=>{
+const getBySlug =async (req,res)=>{
     try {
         const categories = await prisma.category.findUnique({
             where:{
-                id: req.params.id
+                slug: req.params.slug
     
         }})
         res.json(categories);
@@ -70,6 +70,6 @@ const remove = async()=>{
 
 
 
-return{save,get,getById,remove}
+return{save,get,getBySlug,remove}
 
 }

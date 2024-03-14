@@ -43,6 +43,8 @@
     "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vite-plugin-proxy": "^0.5.0",
+    "vite-plugin-vue-images": "^0.6.1"
   }
 }
