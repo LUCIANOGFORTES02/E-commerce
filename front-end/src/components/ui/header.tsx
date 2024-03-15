@@ -12,19 +12,22 @@ import { Separator } from "@radix-ui/react-separator";
 
 
 export default function Header() {
-
     const navigate = useNavigate();
     const auth = useContext(AuthContext);
 
     const handleLoginClick =async()=>{
-     await navigate('/login');
+        await navigate('/login');
 
    }
-   const handleLogoutClick =async()=>{
-    await auth.signup()
-    window.location.href = window.location.href
+    const handleLogoutClick =async()=>{
+        await auth.signup()
+        window.location.href = window.location.href
    //await navigate('/');
   }
+    const handleOfertasClick = async()=>{
+        await navigate('/catalogo')
+
+    }
 
     return <Card className="flex items-center p-[1.875rem] justify-between">
        <Sheet>
@@ -79,7 +82,7 @@ export default function Header() {
                         <HomeIcon size={16}/>
                         Ofertas
                     </Button>
-                    <Button variant="outline" className="w-full justify-start gap-2">
+                    <Button onClick={handleOfertasClick} variant="outline" className="w-full justify-start gap-2">
                         <ListOrderedIcon size={16}/>
                         Catálogo
                     </Button>

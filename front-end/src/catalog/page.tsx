@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import CategoryItem from "./components/category-item";
 import { Category } from "@/types/Category";
 
-export default function CatalogPage() {
+export default function CatalogoPage() {
 
     const api = useApi();
     const [categories, setCategories] = useState<Category[]>([]);
@@ -25,7 +25,7 @@ export default function CatalogPage() {
 
   return (
     <div className="flex flex-col gap-8 p-5">
-      <Badge variant="outline">
+      <Badge className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"  variant="outline">
         <ShapesIcon size={16} />
         Catálogo
       </Badge>

@@ -49,8 +49,8 @@ export default function Home() {
         </div>
        
 
-        <div className='mt-8'>
-        <SectionTitle>Ofertas </SectionTitle>
+        <div className='mt-8 '>
+          <SectionTitle>Ofertas </SectionTitle>
           <ProductList product={product}/>
         </div>
 

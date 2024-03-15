@@ -5,3 +5,4 @@ export default function SectionTitle({children,...props}:ComponentProps<'p'>) {
     <p className='mb-3 pl-5 font-bold uppercase '{...props}>{children}</p>
   )
 }
+ 

@@ -9,7 +9,7 @@ export default function CategoryItem({category}:CategoryItemProps) {
   return (
     <Link to={`/category/${category.slug}`}>
         <div className="flex flex-col">
-            <div className="flex h-[150px] w-full items-center justify-center rounded-tl-lg rounded-tr-lg bg-gradient-to-br from-purple-600 to-[rgba(80,51,195,0.2)]">
+            <div className="flex h-[150px] w-full items-center justify-center rounded-tl-lg rounded-tr-lg bg-gradient-to-br from-purple-950 to-[rgba(80,51,195,0.2)]">
                 <img 
                 src={category.imageUrl} 
                 alt={category.name}

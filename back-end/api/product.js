@@ -57,8 +57,10 @@ const getBySlug =async (req,res)=>{
     try {
         const product = await prisma.product.findUnique({
             where:{
-                slug: req.params.slug
-    
+                category:{
+                    slug: req.params.slug
+
+                } 
         }})
         res.json(product);
         

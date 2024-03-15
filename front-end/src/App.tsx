@@ -14,17 +14,16 @@ import Footer from './components/ui/footer'
 function App() {
 
   return (
-    <div className='flex h-full flex-col'>
+    
     <AuthProvider>
       <BrowserRouter>
        <Header/>
-       <div className='flex-1'>
        <Router /> 
-       </div>
+       
         {/* <Footer/> */}
       </BrowserRouter>
     </AuthProvider>
-    </div>
+ 
   )
 }
 

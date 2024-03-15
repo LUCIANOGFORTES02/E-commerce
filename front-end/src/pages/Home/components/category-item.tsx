@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { Category } from '@/types/User'
+import { Category } from '@/types/Category'
 import { HeadphonesIcon, KeyboardIcon, MonitorIcon, MouseIcon, SpeakerIcon, SquareIcon } from 'lucide-react'
 
 
