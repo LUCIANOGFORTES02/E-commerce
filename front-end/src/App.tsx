@@ -7,6 +7,7 @@ import Login from './pages/Login/login'
 import PrivateTeste from './pages/Private/private'
 import { AuthProvider } from './auth/AuthProvider'
 import Router from './router'
+import Footer from './components/ui/footer'
 
 
 
@@ -14,15 +15,11 @@ function App() {
 
   return (
     <div>
-     <Header/>
      <AuthProvider>
       <BrowserRouter>
         <Router />
       </BrowserRouter>
     </AuthProvider>
-     {/* Conteúdo  as rotas*/}
-     {/* Footer */}
-     
     </div>
   )
 }

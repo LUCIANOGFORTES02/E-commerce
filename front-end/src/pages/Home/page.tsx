@@ -38,7 +38,7 @@ export default function Home() {
   //Pegar a categoria e verificar o slug
 
   return ( 
-      <div >
+      <div className='py-8' >
         <PromoBanner 
         src="/banner-home-01.png" 
         alt="Desconto de até 55%" />
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
         <PromoBanner 
-        src="/banner-mouses.png " 
+        src="/banner-fones.png " 
         alt="Desconto de até 55% em mouses" 
         />
          

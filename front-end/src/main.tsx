@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './auth/AuthProvider.tsx'
 import Router from "./router.tsx"
 import Header from './components/ui/header.tsx'
+import Footer from './components/ui/footer.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <Header/>
         <Router />
+        <Footer/>
       </BrowserRouter>
     </AuthProvider>
   </React.StrictMode>,
