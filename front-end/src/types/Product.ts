@@ -6,6 +6,6 @@ export type Product={
     description: string,
     basePrice: number,
     categoryId: string,
-    discountPercentege: number
+    discountPercentage: number
 
 }

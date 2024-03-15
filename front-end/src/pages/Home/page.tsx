@@ -7,6 +7,8 @@ import { Product } from '@/types/Product';
 
 export default function Home() {
 
+
+  
   const api = useApi();
   const [product, setProduct] = useState<Product[]>([]);
 
@@ -24,8 +26,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div >
-      <div className="">
+   
+      <div >
         <img 
         src="/banner-home-01.png" 
         alt="Desconto de até 55%" 
@@ -54,6 +56,6 @@ export default function Home() {
 
 
         
-    </div>
+  
   )
 }
