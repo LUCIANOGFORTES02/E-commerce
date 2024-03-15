@@ -60,6 +60,16 @@ export default function Home() {
           <ProductList product={keyboards}/>
         </div>
 
+        <PromoBanner 
+        src="/banner-mouses.png " 
+        alt="Desconto de até 55% em mouses" 
+        />
+         
+        <div className='mt-8'>
+          <SectionTitle>Mouses </SectionTitle>
+          <ProductList product={keyboards}/>
+        </div>
+
         
 
 

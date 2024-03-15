@@ -88,15 +88,13 @@ const remove = async()=>{
 }
 
 const getByCategorySlug = async (req,res)=>{
-   
     try {
         const categorySlug= await prisma.product.findMany({
             where:{
                 category:{
                     slug:"keyboards"
                 }
-            }
-            
+            }       
         })
         
         res.json(categorySlug);     
@@ -104,13 +102,29 @@ const getByCategorySlug = async (req,res)=>{
     } catch (error) {
         res.status(500).send(error);
     }
+}
 
-   
+const getByCategoryMousesSlug = async (req,res)=>{
+    try {
+        const categoryMousesSlug= await prisma.product.findMany({
+            where:{
+                category:{
+                    slug:"mouses"
+                }
+            }       
+        })
+        
+        res.json(categoryMousesSlug);     
+        
+    } catch (error) {
+        res.status(500).send(error);
+    }
+
 
 }
 
 
 
-return{save,get,getBySlug,getByDiscount,getByCategorySlug,remove}
+return{save,get,getBySlug,getByDiscount,getByCategorySlug,getByCategoryMousesSlug,remove}
 
 }

@@ -29,6 +29,9 @@ module.exports = app => {
     
     app.route('/productkeyboard')
     .get(app.api.product.getByCategorySlug)
+
+    app.route('/productmouses')
+    .get(app.api.product.getByCategoryMousesSlug)
     
 
     app.route('/product/:slug')
