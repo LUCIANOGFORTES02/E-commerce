@@ -7,9 +7,4 @@ export type User={
 
 }
 
-export type Category={
-    id:string,
-    name:string,
-    slug:string,
-    imageUrl:String
-}
+

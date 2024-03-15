@@ -11,12 +11,7 @@ import Footer from './components/ui/footer.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
-        <Header/>
-        <Router />
-        <Footer/>
-      </BrowserRouter>
-    </AuthProvider>
-  </React.StrictMode>,
+        <App/>
+  </React.StrictMode>
+  
 )

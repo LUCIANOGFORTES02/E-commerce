@@ -1,7 +1,7 @@
 
 import CategoryItem from './category-item'
 import { useApi } from '@/hooks/useApi'
-import { Category } from "@/types/User";
+import { Category } from "@/types/Category";
 import { useEffect,useState } from 'react';
 
 export default function Categories() {
