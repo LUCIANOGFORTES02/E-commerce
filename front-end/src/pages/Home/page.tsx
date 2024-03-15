@@ -14,15 +14,19 @@ export default function Home() {
   const api = useApi();
   const [product, setProduct] = useState<Product[]>([]);
   const [keyboards, setKeyboards] = useState<Product[]>([]);
+  const [mouses, setMouses] = useState<Product[]>([]);
 
 
   useEffect(() => {
       const fetchData = async () => {
           try {
               const data = await api.loadProductDiscount();
-              const data2 = await api.loadProductCategory();
+              const data2 = await api.loadKeyboardsCategory();
+              const data3 = await api.loadMousesCategory();
+              
               setProduct(data);
               setKeyboards(data2);
+              setMouses(data3);
           } catch (error) {
               console.error('Erro ao carregar os produtos:', error);
           }
@@ -67,7 +71,7 @@ export default function Home() {
          
         <div className='mt-8'>
           <SectionTitle>Mouses </SectionTitle>
-          <ProductList product={keyboards}/>
+          <ProductList product={mouses}/>
         </div>
 
         

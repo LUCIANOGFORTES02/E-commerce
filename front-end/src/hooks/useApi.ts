@@ -64,8 +64,13 @@ export const useApi =()=>({
         return response.data
 
     },
-    loadProductCategory: async ()=>{
+    loadKeyboardsCategory: async ()=>{
         const response = await api.get('/productkeyboard');
+        return response.data
+
+    },
+    loadMousesCategory: async ()=>{
+        const response = await api.get('/productmouses');
         return response.data
 
     }
