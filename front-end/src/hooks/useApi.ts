@@ -63,6 +63,11 @@ export const useApi =()=>({
         const response = await api.get('/productdiscount');
         return response.data
 
+    },
+    loadProductCategory: async ()=>{
+        const response = await api.get('/productkeyboard');
+        return response.data
+
     }
 
 

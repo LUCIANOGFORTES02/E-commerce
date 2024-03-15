@@ -27,6 +27,9 @@ module.exports = app => {
     app.route('/productdiscount')
     .get(app.api.product.getByDiscount)
     
+    app.route('/productkeyboard')
+    .get(app.api.product.getByCategorySlug)
+    
 
     app.route('/product/:slug')
     .get(app.api.product.getBySlug)

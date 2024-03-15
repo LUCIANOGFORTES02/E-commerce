@@ -69,32 +69,48 @@ const getBySlug =async (req,res)=>{
 }
 
 const getByDiscount =async (req,res)=>{
-
     try {
         const product = await prisma.product.findMany({
             where:{
                 discountPercentage: {
                     gt:0,
                 }
-    
         }})
-        res.json(product);
-      
+        res.json(product);     
         
     } catch (error) {
         res.status(500).send(error);
-        
     }
-
 }
 
 const remove = async()=>{
 
 }
 
+const getByCategorySlug = async (req,res)=>{
+   
+    try {
+        const categorySlug= await prisma.product.findMany({
+            where:{
+                category:{
+                    slug:"keyboards"
+                }
+            }
+            
+        })
+        
+        res.json(categorySlug);     
+        
+    } catch (error) {
+        res.status(500).send(error);
+    }
+
+   
+
+}
 
 
 
-return{save,get,getBySlug,getByDiscount,remove}
+return{save,get,getBySlug,getByDiscount,getByCategorySlug,remove}
 
 }
