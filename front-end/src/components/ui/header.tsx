@@ -83,10 +83,13 @@ export default function Header() {
                         <ListOrderedIcon size={16}/>
                         Catálogo
                     </Button>
+
+                    {auth.user &&(
                     <Button variant="outline" className="w-full justify-start gap-2">
                         <UserIcon size={16}/>
                         Admin
                     </Button>
+                    )}
 
                 </div>
 
