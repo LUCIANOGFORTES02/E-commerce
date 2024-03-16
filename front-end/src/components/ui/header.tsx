@@ -116,9 +116,10 @@ export default function Header() {
 
             </SheetContent>
        </Sheet>
-
-        <h1 className="text-lg font-semibold">
+        <Link to={'/'}>           
+            <h1 className="text-lg font-semibold">
             <span className="text-primary">E-commerce</span></h1>
+        </Link> 
         <Button size="icon" variant="outline">
             <ShoppingCartIcon/>
         </Button>
