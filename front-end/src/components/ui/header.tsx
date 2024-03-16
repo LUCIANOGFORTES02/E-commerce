@@ -1,8 +1,8 @@
-import { HomeIcon, ListOrderedIcon, LogInIcon, LogOutIcon, MenuIcon, ShoppingCartIcon, UserIcon } from "lucide-react";
+import { HomeIcon, ListOrderedIcon, LogInIcon, LogOutIcon, MenuIcon, PercentIcon, ShoppingCartIcon, UserIcon } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
-import { useNavigate } from "react-router-dom";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "@/auth/AuthContext";
 import { Avatar } from "./avatar";
@@ -65,10 +65,12 @@ export default function Header() {
 
                 <div className="mt-2 flex flex-col gap-2">
                    {!auth.user &&(
+                     <SheetClose asChild> 
                     <Button onClick={handleLoginClick} variant="outline" className="w-full justify-start gap-2">
                         <LogInIcon size={16}/>
                         Fazer Login
                     </Button>
+                    </SheetClose>
                    ) }
 
                     {auth.user &&(
@@ -78,14 +80,29 @@ export default function Header() {
                     </Button>
                    ) }
 
+                    <SheetClose asChild>
+                    <Link to={'/'}> 
+                    <Button variant="outline" className="w-full justify-start gap-2"
+                    >
+                        <HomeIcon size={16} />
+                        Início
+                    </Button>
+                    </Link>
+                    </SheetClose>
+
+                    <SheetClose asChild>    
                     <Button  variant="outline" className="w-full justify-start gap-2">
-                        <HomeIcon size={16}/>
+                        <PercentIcon size={16}/>
                         Ofertas
                     </Button>
+                    </SheetClose>
+
+                    <SheetClose asChild> 
                     <Button onClick={handleOfertasClick} variant="outline" className="w-full justify-start gap-2">
                         <ListOrderedIcon size={16}/>
                         Catálogo
                     </Button>
+                    </SheetClose>
 
                     {auth.user &&(
                     <Button variant="outline" className="w-full justify-start gap-2">
