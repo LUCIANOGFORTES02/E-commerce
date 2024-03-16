@@ -47,7 +47,7 @@ export default function Header() {
 
                         <div className="flex itens-center gap-2 py-4">
                             <Avatar>
-                                <AvatarFallback className="">{auth.user.name?.[0].toUpperCase()}</AvatarFallback>
+                                <AvatarFallback className="">{}</AvatarFallback>
                             </Avatar>
 
                             <Gravatar email={auth.user.email} alt="User"/>

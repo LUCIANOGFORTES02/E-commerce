@@ -16,9 +16,8 @@ module.exports = app => {
     .post(app.api.category.save)
     .get(app.api.category.get)
     
-
-    app.route('/category/:slug')
-    .get(app.api.category.getBySlug)
+    app.route('/category/:slug') 
+    .get(app.api.product.getBySlug)
 
     app.route('/product')
     .post(app.api.product.save)
@@ -33,9 +32,7 @@ module.exports = app => {
     app.route('/productmouses')
     .get(app.api.product.getByCategoryMousesSlug)
     
-
-    app.route('/product/:slug')
-    .get(app.api.product.getBySlug)
+   
 
 
 }

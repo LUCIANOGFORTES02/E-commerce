@@ -3,6 +3,7 @@ import { RequireAuth } from './auth/RequireAuth'
 import Login from './pages/Login/login'
 import Home from './pages/Home/page'
 import CatalogoPage from "./catalog/page"
+import PageCategoryProducts from "./category/page"
 
 
 
@@ -20,6 +21,9 @@ export default function Router() {
         <Route path='/login' 
                 element={ 
                         <Login/> }/>
+        <Route path="/category/:slug"
+                element={
+                        <PageCategoryProducts/> }/>
 
 
           {/* { <Route path='/home' 

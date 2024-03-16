@@ -14,7 +14,6 @@ export default function ProductItem({product,className}:ProductProp) {
     to={`/product/${product.slug}`} 
     className={`flex min-w-[156px] flex-col gap-4 ${className}`}
     >
-  
  
       <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
       <img 

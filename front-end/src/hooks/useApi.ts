@@ -73,6 +73,11 @@ export const useApi =()=>({
         const response = await api.get('/productmouses');
         return response.data
 
+    },
+    loadCategoryProducts: async (slug:string)=>{
+        const response = await api.get(`/category/${slug}`);
+        return response.data
+
     }
 
 
