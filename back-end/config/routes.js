@@ -17,11 +17,15 @@ module.exports = app => {
     .get(app.api.category.get)
     
     app.route('/category/:slug') 
-    .get(app.api.product.getBySlug)
+    .get(app.api.category.getBySlug)
 
     app.route('/product')
     .post(app.api.product.save)
     .get(app.api.product.get)
+    
+    app.route('/product/:slug')
+    .get(app.api.product.getBySlug)
+
 
     app.route('/productdiscount')
     .get(app.api.product.getByDiscount)

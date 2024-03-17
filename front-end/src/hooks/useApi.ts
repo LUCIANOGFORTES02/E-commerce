@@ -59,6 +59,11 @@ export const useApi =()=>({
         return response.data
 
     },
+    loadProductBySlug: async(slug:string)=>{
+        const response = await api.get(`/product/${slug}`);
+        return response.data
+
+    },
     loadProductDiscount: async ()=>{
         const response = await api.get('/productdiscount');
         return response.data
@@ -77,7 +82,6 @@ export const useApi =()=>({
     loadCategoryProducts: async (slug:string)=>{
         const response = await api.get(`/category/${slug}`);
         return response.data
-
     }
 
 

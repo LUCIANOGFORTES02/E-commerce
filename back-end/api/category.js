@@ -48,20 +48,26 @@ const get = async (req,res)=>{
 }
 
 const getBySlug =async (req,res)=>{
+
     try {
-        const categories = await prisma.category.findUnique({
-            where:{
-                slug: req.params.slug
-    
-        }})
-        res.json(categories);
+        const category = await prisma.category.findFirst({
+            where: {
+                slug: req.params.slug,
+              },
+              include:{
+                products: true
+              },
+            
+          });
+          if(!category){
+            return null
+          }
+        res.json(category);
         
     } catch (error) {
         res.status(500).send(error);
         
     }
-
-
 }
 const remove = async()=>{
 

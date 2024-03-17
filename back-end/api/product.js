@@ -56,19 +56,13 @@ const get = async (req,res)=>{
 const getBySlug =async (req,res)=>{
 
     try {
-        const category = await prisma.category.findFirst({
-            where: {
-                slug: req.params.slug,
-              },
-              include:{
-                products: true
-              },
-            
-          });
-          if(!category){
-            return null
-          }
-        res.json(category);
+        const product = await prisma.product.findFirst({
+            where:{
+                slug:req.params.slug
+            }     
+          
+    })
+        res.json(product);
         
     } catch (error) {
         res.status(500).send(error);
@@ -77,7 +71,6 @@ const getBySlug =async (req,res)=>{
 }
 
 const getByDiscount =async (req,res)=>{
-    console.log('ola')
     try {
         const product = await prisma.product.findMany({
             where:{
