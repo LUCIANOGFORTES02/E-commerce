@@ -2,6 +2,7 @@ import { useApi } from '@/hooks/useApi';
 import { Product } from '@/types/Product';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import ProductImages from './components/product-images';
 
 export default function ProductDetailsPage() {
 
@@ -32,8 +33,8 @@ export default function ProductDetailsPage() {
 
 
   return (
-    <div>
-      <h1>{product.name}</h1>
+    <div >
+      <ProductImages imageUrls={product.imageUrls} name={product.name}/>
     </div>
   )
 }
