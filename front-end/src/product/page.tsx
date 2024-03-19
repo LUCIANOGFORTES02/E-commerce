@@ -1,8 +1,10 @@
 import { useApi } from '@/hooks/useApi';
 import { Product } from '@/types/Product';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ProductImages from './components/product-images';
+import ProductInfo from './components/product-info';
+import { computeProductTotalPrice } from '@/helpers/product';
 
 export default function ProductDetailsPage() {
 
@@ -33,8 +35,9 @@ export default function ProductDetailsPage() {
 
 
   return (
-    <div >
+    <div className='flex flex-col gap-8' >
       <ProductImages imageUrls={product.imageUrls} name={product.name}/>
+      <ProductInfo product={computeProductTotalPrice(product)}/>
     </div>
   )
 }
