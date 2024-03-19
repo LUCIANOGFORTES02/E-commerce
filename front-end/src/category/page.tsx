@@ -3,7 +3,7 @@ import ProductItem from '@/components/ui/product-item';
 import { computeProductTotalPrice } from '@/helpers/product';
 import { useApi } from '@/hooks/useApi';
 import { Product } from '@/types/Product';
-import { CATEGORY_ICON } from '@/types/category-icons';
+import { CATEGORY_ICON } from '@/helpers/category-icons';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 

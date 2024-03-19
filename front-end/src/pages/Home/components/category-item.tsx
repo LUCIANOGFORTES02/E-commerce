@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import { Category } from '@/types/Category'
-import { CATEGORY_ICON } from '@/types/category-icons'
+import { CATEGORY_ICON } from '@/helpers/category-icons'
 import { Link } from 'react-router-dom'
 
 interface categoryItemProps{
