@@ -3,7 +3,7 @@ import Categories from './components/categories'
 import ProductList from '../../components/ui/product-list'
 import { useEffect, useState } from 'react';
 import { Product } from '@/types/Product';
-import SectionTitle from './components/section-title';
+import SectionTitle from '../../components/ui/section-title';
 import PromoBanner from './components/promo-banner';
 
 
