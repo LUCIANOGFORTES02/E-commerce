@@ -1,6 +1,6 @@
 import { useApi } from '@/hooks/useApi';
 import Categories from './components/categories'
-import ProductList from './components/product-list'
+import ProductList from '../../components/ui/product-list'
 import { useEffect, useState } from 'react';
 import { Product } from '@/types/Product';
 import SectionTitle from './components/section-title';

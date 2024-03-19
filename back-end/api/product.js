@@ -59,9 +59,23 @@ const getBySlug =async (req,res)=>{
         const product = await prisma.product.findFirst({
             where:{
                 slug:req.params.slug
-            }     
+            } ,
+            include:{
+                category:{
+                    include:{
+                        products:{
+                            where:{
+                                slug:{
+                                    not: req.params.slug
+                                }
+                            }
+                        }
+                    }   
+                }
+            }   
           
     })
+    console.log(product)
         res.json(product);
         
     } catch (error) {
