@@ -9,6 +9,7 @@ import { Avatar } from "./avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import Gravatar from "react-gravatar";
 import { Separator } from "@radix-ui/react-separator";
+import Cart from "./cart";
 
 
 export default function Header() {
@@ -120,9 +121,22 @@ export default function Header() {
             <h1 className="text-lg font-semibold">
             <span className="text-primary">E-commerce</span></h1>
         </Link> 
+
+      <Sheet>
+        <SheetTrigger asChild>
         <Button size="icon" variant="outline">
             <ShoppingCartIcon/>
         </Button>
+        </SheetTrigger>
+        
+        <SheetContent>
+            <Cart></Cart>
+          
+        </SheetContent>
+        
+      </Sheet>
+
+
 
     </Card>
 
