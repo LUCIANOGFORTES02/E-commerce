@@ -22,7 +22,7 @@ export default function CartItem({product}:CartItemProps) {
     <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
             {/*Parte esquerda imagem e nome */}
-            <div className="flex justify-center items-center bg-accent rounded-lg w-[75px] h-[75px]">
+            <div className="flex justify-center items-center bg-accent rounded-lg w-[75px] h-[75px] lg:h-[120px] lg:w-[120px]">
                 <img 
                     src={product.imageUrls[0]}
                     alt={product.name}
@@ -35,26 +35,26 @@ export default function CartItem({product}:CartItemProps) {
                     }
                 />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1 lg:gap-2">
                 <p className="text-xs">{product.name}</p>
 
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 lg:text-base">
                     <p className="font-bold text-sm">R$ {product.totalPrice.toFixed(2)}</p>
                     {product.discountPercentage > 0 && (
-                    <p className='opacity-75 line-through text-xs'>R$ {Number(product.basePrice).toFixed(2)}</p> 
+                    <p className='opacity-75 line-through text-xs lg:text-sm'>R$ {Number(product.basePrice).toFixed(2)}</p> 
                     )}
                 </div>
             
             
-                <div className='flex items-center gap-2'>
-                    <Button size="icon" variant="outline" className="h-8 w-8" onClick={()=>cart.decrementQuantity(product.id)}>
-                        <ArrowLeftIcon size={12} />
+                <div className='flex items-center gap-1 lg:gap-3'>
+                    <Button size="icon" variant="outline" className="h-8 w-8 lg:h-9 lg:w-9" onClick={()=>cart.decrementQuantity(product.id)}>
+                        <ArrowLeftIcon className="h-4 w-4 lg:h-5 lg:w-5" />
                     </Button>
                     
-                    <span className='text-xs'>{ product.quantity }</span>
+                    <span className='text-xs lg:text-sm'>{ product.quantity }</span>
 
-                    <Button size="icon" variant="outline" className="h-8 w-8"  onClick={()=>cart.incrementQuantity(product.id)}>
-                        <ArrowRightIcon size={12}/>
+                    <Button size="icon" variant="outline" className="h-8 w-8 lg:h-9 lg:w-9"  onClick={()=>cart.incrementQuantity(product.id)}>
+                        <ArrowRightIcon className="h-4 w-4 lg:h-5 lg:w-5"/>
                     </Button>
                 </div>
             </div>
@@ -64,8 +64,13 @@ export default function CartItem({product}:CartItemProps) {
 
         </div>
             {/* Parte direita botão de deletar */}
-            <Button size="icon" variant="outline" onClick={handleRemoveProductClick}>
-                <TrashIcon size={16}/>
+            <Button 
+                className="h-8 w-8 lg:h-9 lg:w-9"
+                 size="icon" 
+                 variant="outline" 
+                 onClick={handleRemoveProductClick}>
+                
+                <TrashIcon className="h-4 w-4 lg:h-5 lg:w-5"/>
             </Button>
 
            
