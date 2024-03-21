@@ -1,8 +1,25 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import {CartProduct, cartContext} from "./CartContext"
 
 export default function CartProvider({children}:{children: JSX.Element}) {
   const [products,setProducts] = useState<CartProduct[]>([])//Guardar os produtos
+
+  const subTotal = useMemo(()=>{//Evitar cálculos caros em cada renderização
+    return products.reduce((acc,product)=> {
+      return acc +Number(product.basePrice)
+    },0);
+
+  },[products])
+
+  const total = useMemo(()=>{//Evitar cálculos caros em cada renderização
+    return products.reduce((acc,product)=> {
+      return acc +Number(product.totalPrice)
+    },0);
+
+  },[products])
+
+  const totaldiscount = subTotal - total;
+
 
 
   const decrementQuantity=(productId:string)=>{
@@ -69,6 +86,9 @@ export default function CartProvider({children}:{children: JSX.Element}) {
         decrementQuantity,
         incrementQuantity,
         removeProductinCart,
+        subTotal,
+        total,
+        totaldiscount,
         cartTotalPrice: 0,
         cartBasePrice: 0, 
         cartTotalDiscount: 0,

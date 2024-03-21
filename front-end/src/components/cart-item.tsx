@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, ArrowRightIcon, TrashIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { CartProduct, cartContext } from "@/cart/CartContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 interface CartItemProps{
     product: CartProduct
@@ -16,11 +16,7 @@ export default function CartItem({product}:CartItemProps) {
 
     const handleRemoveProductClick=()=>{
         cart.removeProductinCart(product.id);
-
     }
-
-    
-    
 
   return (
     <div className="flex items-center justify-between">
