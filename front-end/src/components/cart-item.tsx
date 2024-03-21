@@ -11,8 +11,13 @@ export default function CartItem({product}:CartItemProps) {
     const cart = useContext(cartContext)
 
     useEffect(()=>{
-        
-    })
+
+    });
+
+    const handleRemoveProductClick=()=>{
+        cart.removeProductinCart(product.id);
+
+    }
 
     
     
@@ -63,7 +68,7 @@ export default function CartItem({product}:CartItemProps) {
 
         </div>
             {/* Parte direita botão de deletar */}
-            <Button size="icon" variant="outline">
+            <Button size="icon" variant="outline" onClick={handleRemoveProductClick}>
                 <TrashIcon size={16}/>
             </Button>
 

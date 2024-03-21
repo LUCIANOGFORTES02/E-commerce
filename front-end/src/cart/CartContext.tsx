@@ -13,7 +13,8 @@ export type CartContextType = {
     cartTotalDiscount:number;
     addProductToCart:(product: CartProduct) => void;
     decrementQuantity:(productId:string)=>void;
-    incrementQuantity:(productId:string)=>void
+    incrementQuantity:(productId:string)=>void;
+    removeProductinCart:(productId:string)=>void;
 }
 const defaultCartContextValues: CartContextType = {
     products: [],
@@ -22,7 +23,8 @@ const defaultCartContextValues: CartContextType = {
     cartTotalDiscount: 0,
     addProductToCart: ()=>{},
     decrementQuantity: ()=>{},
-    incrementQuantity:()=>{}
+    incrementQuantity:()=>{},
+    removeProductinCart:()=>{}
 
 
 }

@@ -56,6 +56,10 @@ export default function CartProvider({children}:{children: JSX.Element}) {
 
   };
 
+  const removeProductinCart=(productId:string)=>{
+    setProducts((prev)=> prev.filter((cartProduct)=>(cartProduct.id!=productId)));
+  }
+
   return (
    <div>
     <cartContext.Provider 
@@ -64,6 +68,7 @@ export default function CartProvider({children}:{children: JSX.Element}) {
         addProductToCart,
         decrementQuantity,
         incrementQuantity,
+        removeProductinCart,
         cartTotalPrice: 0,
         cartBasePrice: 0, 
         cartTotalDiscount: 0,
