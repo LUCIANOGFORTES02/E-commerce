@@ -11,14 +11,20 @@ export type CartContextType = {
     cartTotalPrice: number;
     cartBasePrice:number;
     cartTotalDiscount:number;
-    addProductToCart:(product: CartProduct) => void
+    addProductToCart:(product: CartProduct) => void;
+    decrementQuantity:(productId:string)=>void;
+    incrementQuantity:(productId:string)=>void
 }
 const defaultCartContextValues: CartContextType = {
     products: [],
     cartTotalPrice: 0,
     cartBasePrice: 0, 
     cartTotalDiscount: 0,
-    addProductToCart: ()=>{}
+    addProductToCart: ()=>{},
+    decrementQuantity: ()=>{},
+    incrementQuantity:()=>{}
+
+
 }
 
 export const cartContext = createContext<CartContextType>(defaultCartContextValues)

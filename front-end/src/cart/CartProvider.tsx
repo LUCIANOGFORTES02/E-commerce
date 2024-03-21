@@ -4,6 +4,35 @@ import {CartProduct, cartContext} from "./CartContext"
 export default function CartProvider({children}:{children: JSX.Element}) {
   const [products,setProducts] = useState<CartProduct[]>([])//Guardar os produtos
 
+
+  const decrementQuantity=(productId:string)=>{
+    setProducts((prev)=>prev.map((cartProduct)=>{
+      if(cartProduct.id === productId){
+        return{
+          ...cartProduct,
+          quantity:cartProduct.quantity - 1,
+        }
+      }
+      return cartProduct
+
+    }).filter((prev)=>(prev.quantity>0)))
+
+  }
+  const incrementQuantity=(productId:string)=>{
+    setProducts((prev)=>prev.map((cartProduct)=>{
+      if(cartProduct.id === productId){
+        return{
+          ...cartProduct,
+          quantity:cartProduct.quantity + 1,
+        }
+      }
+      return cartProduct
+
+    })
+    )
+
+  }
+
   const addProductToCart=(product:CartProduct)=>{//Adicionar o produto a lista de produtos
 
     //Se o produto já estiver no carrinho, apenas aumente a sua quantidade
@@ -33,6 +62,8 @@ export default function CartProvider({children}:{children: JSX.Element}) {
     value={{
         products,
         addProductToCart,
+        decrementQuantity,
+        incrementQuantity,
         cartTotalPrice: 0,
         cartBasePrice: 0, 
         cartTotalDiscount: 0,
