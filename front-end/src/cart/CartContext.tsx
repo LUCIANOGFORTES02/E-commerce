@@ -1,7 +1,7 @@
-import { Product } from "@/types/Product"
+import { ProductWithTotalPrice } from "@/helpers/product";
 import { createContext } from "react";
 
-export interface CartProduct extends Product{
+export interface CartProduct extends ProductWithTotalPrice{
     quantity: number;
 }
 

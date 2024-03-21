@@ -1,5 +1,4 @@
 import { cartContext } from '@/cart/CartContext'
-import CartProvider from '@/cart/CartProvider'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ProductWithTotalPrice } from '@/helpers/product'
@@ -44,7 +43,7 @@ export default function ProductInfo({product}:ProductInfosProps ) {
                     <ArrowDownIcon size={14}/> {product.discountPercentage}%
                 </Badge>
             )}
-        </div>product.
+        </div>
 
         {product.discountPercentage > 0 && (
             <p className='opacity-75 line-through text-sm'>R$ {Number(product.basePrice).toFixed(2)}</p>
