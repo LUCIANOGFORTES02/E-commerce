@@ -15,12 +15,10 @@ export default function ProductList({product}:ProductListProp) {
         {
             product.map((product)=>( 
                 <ProductItem  key={product.id} 
-                product={computeProductTotalPrice(product)}/>
+                product={computeProductTotalPrice(product)}
+                className="w-[156px] lg:w-[200px] lg:min-w-[200px]"
+                />
             ))}
-
-
-    
-       
 
     </div>
   )

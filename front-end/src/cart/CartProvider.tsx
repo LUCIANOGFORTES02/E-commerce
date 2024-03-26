@@ -1,8 +1,16 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import {CartProduct, cartContext} from "./CartContext"
 
 export default function CartProvider({children}:{children: JSX.Element}) {
-  const [products,setProducts] = useState<CartProduct[]>([])//Guardar os produtos
+  const [products,setProducts] = useState<CartProduct[]>(
+    JSON.parse(localStorage.getItem("AplicacaoTeste")||"[]")
+
+  )//Guardar os produtos
+
+  useEffect(()=>{
+    localStorage.setItem("AplicacaoTeste",JSON.stringify(products))
+
+  },[products])
 
   const subTotal = useMemo(()=>{//Evitar cálculos caros em cada renderização
     return products.reduce((acc,product)=> {

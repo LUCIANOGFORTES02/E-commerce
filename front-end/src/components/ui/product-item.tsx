@@ -9,6 +9,7 @@ interface ProductProp{
     className?: string
 }
 export default function ProductItem({product,className}:ProductProp) {
+  console.log("slug "+product.slug)
   return (
     <Link
     to={`/product/${product.slug}`} 
@@ -18,7 +19,6 @@ export default function ProductItem({product,className}:ProductProp) {
       <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
       <img 
       src={product.imageUrls[0]} 
-      //src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-48s9K564ZxH7VR-FOsMClLpi6wfho2mWhFy67Sj48e_UakjDydpNs9ChxzNmv57yO4o&usqp=CAU'     
       height={0}
       width={0}
       sizes='100vw'

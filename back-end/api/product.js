@@ -7,35 +7,49 @@ module.exports = app=>{
 
 const save =async (req,res)=>{
     const product = {...req.body }
+    console.log(product)
+    console.log("Olá ")
 
-    if (req.params.slug){
-        product.slug = req.params.slug
+    if (req.params.id){
+        product.id = req.params.id
     }
 
     try {
         existsOrError(product.name,'Nome não informado')
+        existsOrError(product.slug,'Slug não informado')
+        existsOrError(product.description,'Descrição não informada')
+        existsOrError(product.basePrice,'Preço base não informado')
+        existsOrError(product.imageUrls,'Imagens não informadas')
+        existsOrError(product.categoryId,'Categoria não informada')
+        
         
     } catch (error) {
         return res.status(400).send(error)
-        
-    }
-
-    try {
-        const upsertProduct = await prisma.product.upsert({
-            where:{
-               name: product.name
-            },
-            update:{
-                product
-            },
-            create:{
-                product
-            }
-        })
-        res.status(204).send()
-    } catch (error) {
-        res.status(500).send(error)
-        
+             
+    }  
+    console.log(product.id)
+    if(product.id){//Atualizar
+        try {          
+            const upadateProduct = await prisma.product.update({
+                where:{
+                    id:product.id
+                },
+                data:product         
+                ,
+            })
+            res.status(204).send()
+        } catch (error) {
+            res.status(500).send(error)
+        }
+    }else{//Inserir
+        try {
+            const createProduct = await prisma.product.create({
+                data:product
+            })
+            res.status(204).send()
+        } catch (error) {         
+            res.status(500).send(error)
+        }     
     }
 
 
@@ -75,13 +89,32 @@ const getBySlug =async (req,res)=>{
             }   
           
     })
-    console.log(product)
         res.json(product);
         
     } catch (error) {
         res.status(500).send(error);
         
     }
+}
+const getProductsAndCategory = async (req,res)=>{//Buscar os produtos e relacionar a suas categorias
+    try {
+        const products= await prisma.product.findMany({
+            include: {
+              category: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          });
+
+         res.json(products);
+    } catch (error) {
+        res.status(500).send(error);
+        
+    }
+
+
 }
 
 const getByDiscount =async (req,res)=>{
@@ -141,6 +174,6 @@ const getByCategoryMousesSlug = async (req,res)=>{
 
 
 
-return{save,get,getBySlug,getByDiscount,getByCategorySlug,getByCategoryMousesSlug,remove}
+return{save,get,getBySlug,getProductsAndCategory,getByDiscount,getByCategorySlug,getByCategoryMousesSlug,remove}
 
 }

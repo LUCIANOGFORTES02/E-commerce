@@ -34,6 +34,7 @@ export default function Home() {
 
       fetchData();
   }, []);
+  console.log("Home "+mouses)
 
   //Pegar a categoria e verificar o slug
 
@@ -73,11 +74,8 @@ export default function Home() {
           <SectionTitle>Mouses </SectionTitle>
           <ProductList product={mouses}/>
         </div>
-
         
-
-
-       
+             
       </div >
 
 

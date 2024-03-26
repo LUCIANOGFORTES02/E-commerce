@@ -53,13 +53,15 @@ export default function ProductDetailsPage() {
     }, []);
 
     if(!product)return null;
+    console.log(product.category.products[0])
 
-
-  return (
-    <div className='flex flex-col gap-8 pb-8' >
+  return(
+    <div className='flex flex-col gap-8 pb-8 lg:container lg:mx-auto lg:gap-10 lg:py-10'>
+      <div className='flex flex-col gap-8 lg:flex-row lg:gap-9  lg:px-5'>
       <ProductImages imageUrls={product.imageUrls} name={product.name}/>
       <ProductInfo product={computeProductTotalPrice(product)}/>
-      <div>
+      </div>
+      <div className='flex flex-col gap-5'>
         <SectionTitle>Produtos Recomendados</SectionTitle>
         <ProductList product={product.category.products} />
       </div>

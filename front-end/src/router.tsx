@@ -5,10 +5,17 @@ import Home from './pages/Home/page'
 import CatalogoPage from "./catalog/page"
 import PageCategoryProducts from "./category/page"
 import ProductDetailsPage from "./product/page"
+import { useEffect } from "react"
 
 
 
 export default function Router() {
+        useEffect(()=>{
+
+        },[])
+
+
+
   return (
   
 

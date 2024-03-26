@@ -20,12 +20,19 @@ module.exports = app => {
     .get(app.api.category.getBySlug)
 
     app.route('/product')
-    .post(app.api.product.save)
+    .post(app.api.product.save)//Salvar produtos
     .get(app.api.product.get)
-    
+
+    app.route('/productandcategory')
+    .get(app.api.product.getProductsAndCategory)//Retornar o produto e sua respectiva categoria
+   
+    app.route('/product/:id')
+    .put(app.api.product.save)//Atualizar os produtos
+
+
     app.route('/product/:slug')
     .get(app.api.product.getBySlug)
-
+    
 
     app.route('/productdiscount')
     .get(app.api.product.getByDiscount)
