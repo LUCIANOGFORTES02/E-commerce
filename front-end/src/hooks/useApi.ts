@@ -1,5 +1,6 @@
 import axios from "axios"
 import {baseApiUrl} from "../../global"
+import { Product } from "@/types/Product"
 //import { User } from "@/types/User"
 
 const api = axios.create({
@@ -40,13 +41,13 @@ export const useApi =()=>({
 
     },
 
-    loadCategories:async()=>{
+    loadCategories:async()=>{//Busca as categorias
         const response = await api.get('/category');
         return response.data
     },
 
-    saveProduct: async ()=>{
-        const response = await api.post('/product');
+    saveProduct: async (name:string,slug:string,description:string,basePrice:number,categoryId:string,discountPercentage:number,imageUrls:string[])=>{
+        const response = await api.post('/product',{name,slug,description,basePrice,categoryId,discountPercentage,imageUrls});
         return response.data
 
     },

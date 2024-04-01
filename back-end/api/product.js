@@ -27,7 +27,6 @@ const save =async (req,res)=>{
         return res.status(400).send(error)
              
     }  
-    console.log(product.id)
     if(product.id){//Atualizar
         try {          
             const upadateProduct = await prisma.product.update({
@@ -43,11 +42,13 @@ const save =async (req,res)=>{
         }
     }else{//Inserir
         try {
+            console.log(product)
             const createProduct = await prisma.product.create({
                 data:product
             })
             res.status(204).send()
-        } catch (error) {         
+        } catch (error) {   
+            console.log(error)      
             res.status(500).send(error)
         }     
     }

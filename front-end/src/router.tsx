@@ -7,6 +7,7 @@ import PageCategoryProducts from "./category/page"
 import ProductDetailsPage from "./product/page"
 import { useEffect } from "react"
 import AdminPage from "./pages/admin/page"
+import AddProducts from "./pages/admin/components/addProducts"
 
 
 
@@ -41,6 +42,10 @@ export default function Router() {
            { <Route path='/admin' 
                   element={<RequireAuth> 
                             <AdminPage/> 
+                        </RequireAuth>} /> } 
+                        { <Route path='/addproducts' 
+                  element={<RequireAuth> 
+                            <AddProducts/> 
                         </RequireAuth>} /> } 
 
       </Routes>

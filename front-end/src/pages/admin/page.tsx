@@ -1,9 +1,11 @@
 import { Badge } from '@/components/ui/badge'
-import { PackageIcon } from 'lucide-react'
+import { PackageIcon, PlusIcon } from 'lucide-react'
 import ProductsTable, { ProductWithTotalPriceAndCategory } from './components/products-table'
 import { useEffect, useState } from 'react';
 import { useApi } from '@/hooks/useApi';
 import { computeProductTotalPrice } from '@/helpers/product';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 
 interface productAndCategory {
@@ -24,6 +26,11 @@ interface productAndCategory {
 
 
 export default function AdminPage() {
+  const navigate = useNavigate()
+
+  const  handleAddProductsClick= ()=>{
+    navigate('/addproducts')
+  }
 
 
     const api = useApi()
@@ -52,14 +59,23 @@ export default function AdminPage() {
     }));
 
   return (
-    <div>
+    <div className='flex w-full flex-col gap-10 p-10 '>
        <Badge className='w-fit border-primary border-2  px-3 py-[0.375rem]' variant='outline'>
             <PackageIcon size={20}/>
        </Badge>
 
+      <div className='flex w-full items-center justify-between'>
+        <p className='text-lg font-bold'>Produtos encontrados : {products?.length}</p>
+
+        <Button className='flex gap-1' onClick={handleAddProductsClick}>
+          <PlusIcon size={20}/>
+          Adicionar Produto
+        </Button>
+      </div>
       
       {/* Precisa passar o produto e sua respectiva categoria */}
      <ProductsTable products={productsWithTotalPrice}/>
+    
 
 
         
