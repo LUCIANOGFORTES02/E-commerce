@@ -46,35 +46,46 @@ export const useApi =()=>({
     },
 
     saveProduct: async ()=>{
+        const response = await api.post('/product');
+        return response.data
 
     },
+    updateProduct: async(id:string)=>{//Atualizar o produto
+        const response = await api.put(`/product/${id}`);
+        return response.data
+    },
 
-    loadProduct: async ()=>{
+    loadProductAndCategory: async()=>{
+        const response = await api.get('/productandcategory');//Busca o produto e o nome da categoria
+        return response.data
+    },
+    
+    loadProduct: async ()=>{//Busca todos os produto
         const response = await api.get('/product');
         return response.data
 
     },
-    loadProductBySlug: async(slug:string)=>{
+    loadProductBySlug: async(slug:string)=>{//Busca os produtos com deconto pelo slug
         const response = await api.get(`/product/${slug}`);
         return response.data
 
     },
-    loadProductDiscount: async ()=>{
+    loadProductDiscount: async ()=>{//Retorna os preços com desconto
         const response = await api.get('/productdiscount');
         return response.data
 
     },
-    loadKeyboardsCategory: async ()=>{
+    loadKeyboardsCategory: async ()=>{//Retorna os teclados
         const response = await api.get('/productkeyboard');
         return response.data
 
     },
-    loadMousesCategory: async ()=>{
+    loadMousesCategory: async ()=>{//Retorna os moues
         const response = await api.get('/productmouses');
         return response.data
 
     },
-    loadCategoryProducts: async (slug:string)=>{
+    loadCategoryProducts: async (slug:string)=>{//Retorna a categoria e seus respectivos produtos
         const response = await api.get(`/category/${slug}`);
         return response.data
     }

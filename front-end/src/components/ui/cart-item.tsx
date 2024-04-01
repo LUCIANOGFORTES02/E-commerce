@@ -1,5 +1,5 @@
 import { ArrowLeftIcon, ArrowRightIcon, TrashIcon } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "./button";
 import { CartProduct, cartContext } from "@/cart/CartContext";
 import { useContext, useEffect } from "react";
 

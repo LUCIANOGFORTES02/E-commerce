@@ -6,6 +6,7 @@ import CatalogoPage from "./catalog/page"
 import PageCategoryProducts from "./category/page"
 import ProductDetailsPage from "./product/page"
 import { useEffect } from "react"
+import AdminPage from "./pages/admin/page"
 
 
 
@@ -37,10 +38,10 @@ export default function Router() {
                         <ProductDetailsPage/> }/>
 
 
-          {/* { <Route path='/home' 
+           { <Route path='/admin' 
                   element={<RequireAuth> 
-                            <Home/> 
-                        </RequireAuth>} /> } */}
+                            <AdminPage/> 
+                        </RequireAuth>} /> } 
 
       </Routes>
 

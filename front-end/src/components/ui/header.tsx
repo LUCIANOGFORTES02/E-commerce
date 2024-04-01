@@ -29,6 +29,10 @@ export default function Header() {
         await navigate('/catalogo')
 
     }
+    const handleAdminClick = async ()=>{
+        await navigate('/admin')
+
+    }
 
     return <Card className="flex items-center p-[1.875rem] justify-between">
        <Sheet>
@@ -105,8 +109,8 @@ export default function Header() {
                     </Button>
                     </SheetClose>
 
-                    {auth.user &&(
-                    <Button variant="outline" className="w-full justify-start gap-2">
+                    {auth.user?.admin===true &&(
+                    <Button onClick={handleAdminClick} variant="outline" className="w-full justify-start gap-2">
                         <UserIcon size={16}/>
                         Admin
                     </Button>
