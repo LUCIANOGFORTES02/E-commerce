@@ -1,7 +1,7 @@
 const app = require('express')()
 const consign = require('consign')
 
-const port = process.env.PORT||3000
+const port = process.env.PORT || 3000
 
 consign()
 .then('./config/middlewares.js')
