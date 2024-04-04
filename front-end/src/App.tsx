@@ -1,10 +1,10 @@
 import './App.css'
-import { RequireAuth } from './auth/RequireAuth'
+//import { RequireAuth } from './auth/RequireAuth'
 import Header from './components/ui/header'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './auth/AuthProvider'
 import Router from './router'
-import Footer from './components/ui/footer'
+//import Footer from './components/ui/footer'
 import CartProvider from './cart/CartProvider'
 
 

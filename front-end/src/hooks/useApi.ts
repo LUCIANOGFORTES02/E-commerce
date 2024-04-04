@@ -1,6 +1,6 @@
 import axios from "axios"
 import {baseApiUrl} from "../../global"
-import { Product } from "@/types/Product"
+//import { Product } from "@/types/Product"
 //import { User } from "@/types/User"
 
 const api = axios.create({

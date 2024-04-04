@@ -47,7 +47,8 @@ export default function PageCategoryProducts() {
           <ProductItem
             key={product.id}
             product={
-              computeProductTotalPrice(product)
+              {...product,
+              totalPrice: computeProductTotalPrice(product)}
             }
           />
         ))}
