@@ -27,7 +27,9 @@ export default function Cart() {
             {
               cart.products.length>0 ?
               (cart.products.map((product)=>(
-                <CartItem key={product.id} product={ computeProductTotalPrice(product) as any}/>
+                <CartItem key={product.id} product={
+                  {...product, 
+                  totalPrice:computeProductTotalPrice(product)}}/>
                 ))):
                 ( <p className='text-center text-lg font-semibold'>Carrinho vazio</p>)
               
