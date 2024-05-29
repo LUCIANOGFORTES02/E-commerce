@@ -14,8 +14,8 @@ export default function ProductImages({name,imageUrls}:PropsImageProduct) {
 
 
   return (
-    <div className="flex flex-col">
-        <div className="flex h-[380px] w-full items-center justify-center bg-accent">
+    <div className="flex flex-col lg:min-h-full lg:w-3/5">
+        <div className="flex h-[380px] w-full items-center justify-center bg-accent lg:h-full lg:rounded-lg">
             <img
             src={currentImage}
             alt={name}
@@ -28,7 +28,7 @@ export default function ProductImages({name,imageUrls}:PropsImageProduct) {
             }/>
 
         </div>
-        <div  className="mt-5 grid grid-cols-4 gap-4 px-5">
+        <div  className="mt-5 grid grid-cols-4 gap-4 px-5 lg:px-0">
             {imageUrls.map((image)=>(
                  <button onClick={()=>handleclickImage(image)} key={image}
                   className={`flex justify-center items-center h-[100px] rounded-lg bg-accent
