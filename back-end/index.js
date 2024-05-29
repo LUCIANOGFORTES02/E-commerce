@@ -13,6 +13,9 @@ consign()
 //Vai injetar em cada uma das dependencias o app que foi criado.
 //app representa a instancia do express
 //Não irá ser necessário o uso de require 
+app.get("/",(req,res)=>{
+    return res.json("Hello World")
+})
 
 app.listen(port,()=>{
     console.log(`Backend executando ${port}`)
