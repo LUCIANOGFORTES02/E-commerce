@@ -33,11 +33,11 @@ export default function ProductInfo({product}:ProductInfosProps ) {
 
 
   return (
-    <div className='flex flex-col px-5'>
+    <div className='flex flex-col px-5 lg:w-[40%] lg:rounded-lg lg:bg-accent lg:p-10'>
         <h2 className='text-lg'>{product.name}</h2>
 
         <div className='flex items-center gap-2'>
-            <h1 className='text-xl font-bold'>R$ {product.totalPrice.toFixed(2)}</h1>
+            <h1 className='text-xl font-bold lg:text-3xl'>R$ {product.totalPrice.toFixed(2)}</h1>
             {product.discountPercentage > 0 && (
                 <Badge className='px-2 py-[0.125rem]' >
                     <ArrowDownIcon size={14}/> {product.discountPercentage}%

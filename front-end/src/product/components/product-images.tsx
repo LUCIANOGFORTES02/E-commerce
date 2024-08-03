@@ -22,10 +22,8 @@ export default function ProductImages({name,imageUrls}:PropsImageProduct) {
             height={0}
             width={0}
             sizes="100vw"
-            className="h-auto max-h-[70%] w-auto max-w-[80%]"
-            style={
-                {objectFit:"contain",}
-            }/>
+            className="h-auto max-h-[70%] w-auto max-w-[80%] object-contain"
+            />
 
         </div>
         <div  className="mt-5 grid grid-cols-4 gap-4 px-5 lg:px-0">

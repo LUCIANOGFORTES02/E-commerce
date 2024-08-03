@@ -64,7 +64,7 @@ export default function ProductDetailsPage() {
         totalPrice:computeProductTotalPrice(product)}}/>
       </div>
       <div className='flex flex-col gap-5'>
-        <SectionTitle>Produtos Recomendados</SectionTitle>
+        <SectionTitle className="pl-5">Produtos Recomendados</SectionTitle>
         <ProductList product={product.category.products} />
       </div>
      
